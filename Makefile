@@ -1,28 +1,12 @@
-MANAGE := poetry run python manage.py
+start:
+	poetry run python manage.py runserver
 
-.PHONY: test
-test:
-	@poetry run pytest
-
-.PHONY: setup
-setup: db-clean install migrate
-
-.PHONY: install
-install:
-	@poetry install
-
-.PHONY: db-clean
-db-clean:
-	@rm db.sqlite3 || true
-
-.PHONY: migrate
 migrate:
-	@$(MANAGE) migrate
+	poetry run python manage.py makemigrations
+	poetry run python manage.py migrate
 
-.PHONY: shell
-shell:
-	@$(MANAGE) shell_plus --ipython
+test: migrate
+	poetry run python manage.py test tests/
 
-.PHONY: lint
-lint:
-	@poetry run flake8 python_django_orm_blog
+console:
+	poetry run python manage.py shell_plus --ipython

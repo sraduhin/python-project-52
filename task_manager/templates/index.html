@@ -27,8 +27,9 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
+                    {% if request.user.is_anonymous %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login/">
+                        <a class="nav-link" href="{% url 'login' %}">
                             Вход
                         </a>
                     </li>
@@ -37,10 +38,21 @@
                             Регистрация
                         </a>
                     </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">
+                            Выход
+                        </a>
+                    </li>
+                    {%endif%}
                 </ul>
             </div>
         </nav>
+        <ul class="messages">
+        </ul>
+        {% block content %}
         <div class="container wrapper flex-grow-1">
+            {% bootstrap_messages %}
             <h1 class="my-4">
             </h1>
             <h1 class="my-4">
@@ -60,6 +72,7 @@
                 </div>
             </div>
         </div>
+        {% endblock %}
         <footer>
             <div class="container my-5 pt-4 border-top">
                 <a href="https://ru.hexlet.io" target="_blank">
