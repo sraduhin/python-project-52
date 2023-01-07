@@ -6,7 +6,6 @@ from django.urls import reverse_lazy
 from task_manager.forms import SignUpForm
 from task_manager.utils import CustomPermissionRequiredMixin
 
-# Create your views here.
 SUCCESS_REGISTRATION_MESSAGE = "Пользователь успешно зарегистрирован"
 SUCCESS_UPDATE_MESSAGE = "Пользователь успешно изменён"
 SUCCESS_DELETE_MESSAGE = "Пользователь успешно удалён"
