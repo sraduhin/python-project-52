@@ -8,7 +8,7 @@ ERROR_AUTH_MESSAGE = "Вы не авторизованы! Пожалуйста, 
 ERROR_UPDATE_MESSAGE = "У вас нет прав для изменения другого пользователя."
 
 
-class CustomPermissionRequiredMixin(SuccessMessageMixin, LoginRequiredMixin):
+class CustomUnAuthorizedMixin(SuccessMessageMixin, LoginRequiredMixin):
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -16,8 +16,13 @@ class CustomPermissionRequiredMixin(SuccessMessageMixin, LoginRequiredMixin):
                 request, ERROR_AUTH_MESSAGE
             )
             return redirect('login')
+        return super().dispatch(request, *args, **kwargs)
 
-        elif self.request.user != self.get_object():
+
+class CustomPermissionRequiredMixin(SuccessMessageMixin, LoginRequiredMixin):
+
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.user != self.get_object():
             messages.error(
                 request, ERROR_UPDATE_MESSAGE
             )
