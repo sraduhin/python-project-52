@@ -156,7 +156,7 @@ Django = ">=3.2"
 name = "django-extensions"
 version = "3.2.1"
 description = "Extensions for Django"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -538,4 +538,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "9edbd6473f5965a59164300d3a8feafba75ff0b534e503c9880ede7a286565f7"
+content-hash = "59725e7fb2834b5a57a85f914f0af03de49748e1ef61583b8e938c26b6a24d62"
