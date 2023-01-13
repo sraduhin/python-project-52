@@ -39,6 +39,7 @@ ALLOWED_HOSTS = [
     'python-project-52-production-8c1a.up.railway.app',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['python-project-52-production-8c1a.up.railway.app']
 
 # Application definition
 
