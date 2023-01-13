@@ -5,10 +5,14 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from task_manager.forms import SignUpForm
 from task_manager.utils import CustomPermissionRequiredMixin, CustomUnAuthorizedMixin
+from django.utils.translation import gettext as _
 
-SUCCESS_REGISTRATION_MESSAGE = "Пользователь успешно зарегистрирован"
-SUCCESS_UPDATE_MESSAGE = "Пользователь успешно изменён"
-SUCCESS_DELETE_MESSAGE = "Пользователь успешно удалён"
+#SUCCESS_REGISTRATION_MESSAGE = "Пользователь успешно зарегистрирован"
+SUCCESS_REGISTRATION_MESSAGE = _("Successfull sign up")
+#SUCCESS_UPDATE_MESSAGE = "Пользователь успешно изменён"
+SUCCESS_UPDATE_MESSAGE = _("User successfully updated")
+#SUCCESS_DELETE_MESSAGE = "Пользователь успешно удалён"
+SUCCESS_DELETE_MESSAGE = _("User successfully deleted")
 
 
 class UsersListView(ListView):

@@ -5,14 +5,19 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.labels.forms import LabelForm
 from task_manager.labels.models import Label
+from django.utils.translation import gettext as _
 
 from django.contrib import messages
 from django.shortcuts import redirect
 
-SUCCESS_CREATE_MESSAGE = "Метка успешно создана"
-SUCCESS_UPDATE_MESSAGE = "Метка успешно изменена"
-SUCCESS_DELETE_MESSAGE = "Метка успешно удалена"
-ERROR_DELETE_MESSAGE = "Невозможно удалить метку, потому что она используется"
+#SUCCESS_CREATE_MESSAGE = "Метка успешно создана"
+SUCCESS_CREATE_MESSAGE = _("Label successfully created")
+#SUCCESS_UPDATE_MESSAGE = "Метка успешно изменена"
+SUCCESS_UPDATE_MESSAGE = _("Label successfully updated")
+#SUCCESS_DELETE_MESSAGE = "Метка успешно удалена"
+SUCCESS_DELETE_MESSAGE = _("Label successfully deleted")
+#ERROR_DELETE_MESSAGE = "Невозможно удалить метку, потому что она используется"
+ERROR_DELETE_MESSAGE = _("Can't remove the label because it's in use")
 
 
 class LabelsListView(LoginRequiredMixin, ListView):

@@ -1,10 +1,11 @@
-{% load bootstrap4 i18n %}
+{% load bootstrap4 %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="ru-ru">
     <head>
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
         <title>
-            Менеджер задач Hexlet
+            {% trans "Task manager" %}
         </title>
         {% bootstrap_css %}
         {% bootstrap_javascript jquery='full' %}
@@ -12,7 +13,7 @@
     <body class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <a class="navbar-brand" href="/">
-                Менеджер задач
+                {% trans "Task manager" %}
             </a>
             <button class="navbar-toggler" data-target="#navbarToggleExternalContent" data-toggle="collapse">
                 <span class="navbar-toggler-icon">
@@ -22,23 +23,23 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users_index' %}">
-                            Пользователи
+                            {% trans "Users" %}
                         </a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'statuses_index' %}">
-                            Статусы
+                            {% trans "Statuses" %}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'labels_index' %}">
-                            Метки
+                            {% trans "Labels" %}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'tasks_index' %}">
-                            Задачи
+                            {% trans "Tasks" %}
                         </a>
                     </li>
                     {% endif %}
@@ -47,18 +48,18 @@
                     {% if user.is_anonymous %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">
-                            Вход
+                            {% trans "Sign in" %}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users_create' %}">
-                            Регистрация
+                            {% trans "Sign up" %}
                         </a>
                     </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">
-                            Выход
+                            {% trans "Logout" %}
                         </a>
                     </li>
                     {%endif%}
@@ -77,14 +78,14 @@
             <div class="card">
                 <div class="card-body p-5 bg-light">
                     <div class="display-4">
-                        Привет от Хекслета!
+                        {% trans "Huge text!" %}
                     </div>
                     <p class="lead">
-                        Практические курсы по программированию
+                        {% trans "a bit smaller text" %}
                     </p>
                     <hr/>
-                    <a class="btn btn-primary btn-lg" href="https://ru.hexlet.io">
-                        Узнать больше
+                    <a class="btn btn-primary btn-lg" href="https://github.com/sraduhin">
+                        {% trans "Blue button" %}
                     </a>
                 </div>
             </div>

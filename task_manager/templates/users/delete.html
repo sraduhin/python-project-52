@@ -1,14 +1,15 @@
 {% extends "index.html" %}
 {% load bootstrap4 %}
+{% load i18n %}
 {% block content %}
 <div class="container wrapper flex-grow-1">
     <h1 class="my-4">
-        Удаление пользователя
+        {% trans "Deleting user" %}
     </h1>
-    <p>Вы уверены, что хотите удалить {{ user.get_full_name }}?</p>
+    <p>{% trans "Are you sure to delete" %} {{ user.get_full_name }}?</p>
     <form method="post">    
     {% csrf_token %}
-    <input class="btn btn-danger" type="submit" value="Да, удалить">
+    <input class="btn btn-danger" type="submit" value="{% trans 'Yes, delete!' %}">
     </form>
 </div>
 {% endblock %}

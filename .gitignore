@@ -30,3 +30,9 @@ nosetests.xml
 
 #mynotes
 notes.py
+
+#develop db
+db.sqlite3
+database.sql
+dump.json
+whole.json

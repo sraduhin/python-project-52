@@ -2,6 +2,7 @@ import django_filters
 from django import forms
 from task_manager.tasks.models import Task
 from task_manager.labels.models import Label
+from django.utils.translation import gettext
 
 
 class TaskFilter(django_filters.FilterSet):
@@ -16,7 +17,7 @@ class TaskFilter(django_filters.FilterSet):
     self_tasks = django_filters.BooleanFilter(
         widget=forms.CheckboxInput(),
         method='get_self_tasks',
-        label='Только свои задачи'
+        label=gettext('My tasks only'),
     )
 
     class Meta:

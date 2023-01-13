@@ -5,14 +5,19 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.statuses.forms import StatusForm
 from task_manager.statuses.models import Status
+from django.utils.translation import gettext as _
 
 from django.contrib import messages
 from django.shortcuts import redirect
 
-SUCCESS_CREATE_MESSAGE = "Статус успешно создан"
-SUCCESS_UPDATE_MESSAGE = "Статус успешно изменён"
-SUCCESS_DELETE_MESSAGE = "Статус успешно удалён"
-ERROR_DELETE_MESSAGE = "Невозможно удалить статус, потому что он используется"
+#SUCCESS_CREATE_MESSAGE = "Статус успешно создан"
+SUCCESS_CREATE_MESSAGE = _("Status successfully created")
+#SUCCESS_UPDATE_MESSAGE = "Статус успешно изменён"
+SUCCESS_UPDATE_MESSAGE = _("Status successfully updated")
+#SUCCESS_DELETE_MESSAGE = "Статус успешно удалён"
+SUCCESS_DELETE_MESSAGE = _("Status successfully deleted")
+#ERROR_DELETE_MESSAGE = "Невозможно удалить статус, потому что он используется"
+ERROR_DELETE_MESSAGE = _("Can't remove the status because it's in use")
 
 
 class StatusesListView(LoginRequiredMixin, ListView):
