@@ -31,7 +31,7 @@ class UsersUpdateView(CustomUnAuthorizedMixin, CustomPermissionRequiredMixin,
                       UpdateView):
     model = get_user_model()
     form_class = SignUpForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('users_index')
     template_name = 'users/update.html'
     success_message = SUCCESS_UPDATE_MESSAGE
 
@@ -39,6 +39,6 @@ class UsersUpdateView(CustomUnAuthorizedMixin, CustomPermissionRequiredMixin,
 class UsersDeleteView(CustomUnAuthorizedMixin, CustomPermissionRequiredMixin,
                       DeleteView):
     model = get_user_model()
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('users_index')
     template_name = 'users/delete.html'
     success_message = SUCCESS_DELETE_MESSAGE
