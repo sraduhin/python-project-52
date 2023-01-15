@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 ERROR_AUTH_MESSAGE = _("Unauthorized! Sign in please.")
-ERROR_UPDATE_MESSAGE = "You don't have permission to edit other user."
+ERROR_UPDATE_MESSAGE = _("You don't have permission to edit other user.")
 
 
 class CustomUnAuthorizedMixin(SuccessMessageMixin, LoginRequiredMixin):
