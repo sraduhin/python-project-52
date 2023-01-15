@@ -10,13 +10,9 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.shortcuts import redirect
 
-#SUCCESS_CREATE_MESSAGE = "Метка успешно создана"
 SUCCESS_CREATE_MESSAGE = _("Label successfully created")
-#SUCCESS_UPDATE_MESSAGE = "Метка успешно изменена"
 SUCCESS_UPDATE_MESSAGE = _("Label successfully updated")
-#SUCCESS_DELETE_MESSAGE = "Метка успешно удалена"
 SUCCESS_DELETE_MESSAGE = _("Label successfully deleted")
-#ERROR_DELETE_MESSAGE = "Невозможно удалить метку, потому что она используется"
 ERROR_DELETE_MESSAGE = _("Can't remove the label because it's in use")
 
 
@@ -46,7 +42,6 @@ class LabelsDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('labels_index')
     template_name = 'labels/delete.html'
     success_message = SUCCESS_DELETE_MESSAGE
-
 
     def dispatch(self, request, *args, **kwargs):
         if self.get_object().task_set.first():

@@ -9,7 +9,6 @@ class TaskFilter(django_filters.FilterSet):
     def get_self_tasks(self, queryset, *args):
         return queryset.filter(owner=self.request.user)
 
-
     labels = django_filters.ModelChoiceFilter(
         queryset=Label.objects.all()
     )

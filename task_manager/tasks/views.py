@@ -1,9 +1,6 @@
 from task_manager.utils import CustomUnAuthorizedMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.tasks.forms import TaskForm
 from task_manager.tasks.models import Task
@@ -11,11 +8,8 @@ from task_manager.tasks.filters import TaskFilter
 from django_filters.views import FilterView
 from django.utils.translation import gettext as _
 
-#SUCCESS_CREATE_MESSAGE = "Задача успешно создана"
 SUCCESS_CREATE_MESSAGE = _("Task successfully created")
-#SUCCESS_UPDATE_MESSAGE = "Задача успешно изменена"
 SUCCESS_UPDATE_MESSAGE = _("Task successfully updated")
-#SUCCESS_DELETE_MESSAGE = "Задача успешно удалена"
 SUCCESS_DELETE_MESSAGE = _("Task successfully deleted")
 
 

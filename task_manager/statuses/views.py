@@ -10,13 +10,9 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.shortcuts import redirect
 
-#SUCCESS_CREATE_MESSAGE = "Статус успешно создан"
 SUCCESS_CREATE_MESSAGE = _("Status successfully created")
-#SUCCESS_UPDATE_MESSAGE = "Статус успешно изменён"
 SUCCESS_UPDATE_MESSAGE = _("Status successfully updated")
-#SUCCESS_DELETE_MESSAGE = "Статус успешно удалён"
 SUCCESS_DELETE_MESSAGE = _("Status successfully deleted")
-#ERROR_DELETE_MESSAGE = "Невозможно удалить статус, потому что он используется"
 ERROR_DELETE_MESSAGE = _("Can't remove the status because it's in use")
 
 
@@ -41,7 +37,7 @@ class StatusesUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = SUCCESS_UPDATE_MESSAGE
 
 
-class StatusesDeleteView(LoginRequiredMixin,SuccessMessageMixin, DeleteView):
+class StatusesDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Status
     success_url = reverse_lazy('statuses_index')
     template_name = 'statuses/delete.html'
@@ -54,5 +50,3 @@ class StatusesDeleteView(LoginRequiredMixin,SuccessMessageMixin, DeleteView):
             )
             return redirect('statuses_index')
         return super().dispatch(request, *args, **kwargs)
-
-
