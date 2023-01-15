@@ -1,12 +1,14 @@
-from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
+from django.shortcuts import redirect
 from django.utils.translation import gettext as _
 
-from django.contrib import messages
-from django.shortcuts import redirect
 
 ERROR_AUTH_MESSAGE = _("Unauthorized! Sign in please.")
 ERROR_UPDATE_MESSAGE = _("You don't have permission to edit other user.")
+ERROR_DELETE_MESSAGE = _("Cannot delete user because it is in use")
 
 
 class CustomUnAuthorizedMixin(SuccessMessageMixin, LoginRequiredMixin):
@@ -29,3 +31,15 @@ class CustomPermissionRequiredMixin(SuccessMessageMixin, LoginRequiredMixin):
             )
             return redirect('users_index')
         return super().dispatch(request, *args, **kwargs)
+
+
+class PrettyBusinessUserMixin():
+
+    def form_valid(self, form):
+        try:
+            self.object.delete()
+        except ProtectedError:
+            messages.error(
+                self.request, ERROR_DELETE_MESSAGE
+            )
+        return redirect('users_index')

@@ -1,4 +1,4 @@
-from task_manager.utils import CustomUnAuthorizedMixin
+from task_manager.users.utils import CustomUnAuthorizedMixin
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView

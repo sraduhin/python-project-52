@@ -4,8 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from task_manager.forms import SignUpForm
-from task_manager.utils import CustomPermissionRequiredMixin
-from task_manager.utils import CustomUnAuthorizedMixin
+from task_manager.users.utils import CustomPermissionRequiredMixin
+from task_manager.users.utils import CustomUnAuthorizedMixin
+from task_manager.users.utils import PrettyBusinessUserMixin
 from django.utils.translation import gettext as _
 
 SUCCESS_REGISTRATION_MESSAGE = _("Successfull sign up")
@@ -36,8 +37,8 @@ class UsersUpdateView(CustomUnAuthorizedMixin, CustomPermissionRequiredMixin,
     success_message = SUCCESS_UPDATE_MESSAGE
 
 
-class UsersDeleteView(CustomUnAuthorizedMixin, CustomPermissionRequiredMixin,
-                      DeleteView):
+class UsersDeleteView(PrettyBusinessUserMixin, CustomUnAuthorizedMixin,
+                      CustomPermissionRequiredMixin, DeleteView):
     model = get_user_model()
     success_url = reverse_lazy('users_index')
     template_name = 'users/delete.html'

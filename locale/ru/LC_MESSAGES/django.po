@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 15:22+0300\n"
+"POT-Creation-Date: 2023-01-15 18:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,7 +153,10 @@ msgstr "Вы уверены, что хотите удалить"
 #: task_manager/templates/labels/delete.html:12
 #: task_manager/templates/statuses/delete.html:12
 #: task_manager/templates/tasks/delete.html:12
-msgid "Yes, delete!"
+#: task_manager/templates/users/delete.html:12
+#, fuzzy
+#| msgid "Yes, delete!"
+msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: task_manager/templates/labels/index.html:15
@@ -240,12 +243,6 @@ msgstr "Зарегистрировать"
 msgid "Deleting user"
 msgstr "Удаление пользователя"
 
-#: task_manager/templates/users/delete.html:12
-#, fuzzy
-#| msgid "Yes, delete!"
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
 #: task_manager/templates/users/index.html:14
 msgid "Username"
 msgstr "Имя пользователя"
@@ -258,25 +255,31 @@ msgstr "Полное имя"
 msgid "Updating user"
 msgstr "Изменение пользователя"
 
-#: task_manager/users/views.py:11
-msgid "Successfull sign up"
-msgstr "Пользователь успешно зарегистрирован"
-
-#: task_manager/users/views.py:12
-msgid "User successfully updated"
-msgstr "Пользователь успешно изменён"
-
-#: task_manager/users/views.py:13
-msgid "User successfully deleted"
-msgstr "Пользователь успешно удалён"
-
-#: task_manager/utils.py:8
+#: task_manager/users/utils.py:9
 msgid "Unauthorized! Sign in please."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/utils.py:9
+#: task_manager/users/utils.py:10
 msgid "You don't have permission to edit other user."
 msgstr "У вас нет прав для изменения другого пользователя."
+
+#: task_manager/users/utils.py:11
+#, fuzzy
+#| msgid "Can't remove the status because it's in use"
+msgid "Cannot delete user because it is in use"
+msgstr "Невозможно удалить пользователя, потому что он используется"
+
+#: task_manager/users/views.py:12
+msgid "Successfull sign up"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/users/views.py:13
+msgid "User successfully updated"
+msgstr "Пользователь успешно изменён"
+
+#: task_manager/users/views.py:14
+msgid "User successfully deleted"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/views.py:6
 msgid "You are logged in"
@@ -285,6 +288,9 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:7
 msgid "You are logged out"
 msgstr "Вы разлогинены"
+
+#~ msgid "Yes, delete!"
+#~ msgstr "Да, удалить"
 
 #~ msgid "Signin"
 #~ msgstr "Вход"
