@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 14:47+0300\n"
+"POT-Creation-Date: 2023-01-15 15:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,8 +103,8 @@ msgstr "Статусы"
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/templates/index.html:51
-msgid "Signin"
+#: task_manager/templates/index.html:51 task_manager/templates/login.html:8
+msgid "Login"
 msgstr "Вход"
 
 #: task_manager/templates/index.html:56
@@ -153,7 +153,6 @@ msgstr "Вы уверены, что хотите удалить"
 #: task_manager/templates/labels/delete.html:12
 #: task_manager/templates/statuses/delete.html:12
 #: task_manager/templates/tasks/delete.html:12
-#: task_manager/templates/users/delete.html:12
 msgid "Yes, delete!"
 msgstr "Да, удалить"
 
@@ -195,7 +194,7 @@ msgstr "Удалить"
 msgid "Updating label"
 msgstr "Изменение метки"
 
-#: task_manager/templates/login.html:8 task_manager/templates/login.html:13
+#: task_manager/templates/login.html:13
 msgid "Sign in"
 msgstr "Войти"
 
@@ -233,9 +232,19 @@ msgstr "Просмотр задачи"
 msgid "Updating task"
 msgstr "Изменение задачи"
 
+#: task_manager/templates/users/create.html:12
+msgid "Sing up"
+msgstr "Зарегистрировать"
+
 #: task_manager/templates/users/delete.html:7
 msgid "Deleting user"
 msgstr "Удаление пользователя"
+
+#: task_manager/templates/users/delete.html:12
+#, fuzzy
+#| msgid "Yes, delete!"
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/templates/users/index.html:14
 msgid "Username"
@@ -272,3 +281,6 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:7
 msgid "You are logged out"
 msgstr "Вы разлогинены"
+
+#~ msgid "Signin"
+#~ msgstr "Вход"
