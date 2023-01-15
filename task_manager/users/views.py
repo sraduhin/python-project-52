@@ -37,8 +37,10 @@ class UsersUpdateView(CustomUnAuthorizedMixin, CustomPermissionRequiredMixin,
     success_message = SUCCESS_UPDATE_MESSAGE
 
 
-class UsersDeleteView(PrettyBusinessUserMixin, CustomUnAuthorizedMixin,
-                      CustomPermissionRequiredMixin, DeleteView):
+class UsersDeleteView(CustomUnAuthorizedMixin,
+                      CustomPermissionRequiredMixin,
+                      PrettyBusinessUserMixin,
+                      DeleteView):
     model = get_user_model()
     success_url = reverse_lazy('users_index')
     template_name = 'users/delete.html'

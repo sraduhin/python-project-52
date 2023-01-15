@@ -35,11 +35,11 @@ class CustomPermissionRequiredMixin(SuccessMessageMixin, LoginRequiredMixin):
 
 class PrettyBusinessUserMixin():
 
-    def form_valid(self, form):
-        try:
-            self.object.delete()
-        except ProtectedError:
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.owner.first() or obj.executor.first():
             messages.error(
-                self.request, ERROR_DELETE_MESSAGE
+                request, ERROR_DELETE_MESSAGE
             )
-        return redirect('users_index')
+            return redirect('users_index')
+        return super().dispatch(request, *args, **kwargs)
