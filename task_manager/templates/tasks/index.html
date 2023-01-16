@@ -5,15 +5,15 @@
 <div class="container wrapper flex-grow-1">
     {% bootstrap_messages %}
     <h1 class="my-4">
-        {% trans "Statuses" %}
+        {% trans "Tasks" %}
     </h1>
-    <a class="nav-link" href="{% url 'tasks_create' %}">Создать задачу</a>
+    <a class="nav-link" href="{% url 'tasks_create' %}">{% trans "Create task" %}</a>
     <div class="card mb-3">
         <div class="card-body bg-light">
             <form class="form-inline center" method="get">
                 {% bootstrap_form filter.form field_class="ml-2 mr-2" %}
                 <div class="form-group">
-                    <input class="btn btn-primary" type="submit" value="Показать"/>
+                    <input class="btn btn-primary" type="submit" value="{% trans 'Show' %}"/>
                 </div>
             </form>
         </div>

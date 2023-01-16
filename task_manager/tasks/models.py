@@ -28,6 +28,7 @@ class Task(models.Model):
                                verbose_name=_('Status'))
     labels = models.ManyToManyField(
         Label,
+        blank=True,
         verbose_name=_('Labels'),
     )
     created_at = models.DateTimeField(auto_now_add=True)
