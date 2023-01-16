@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-15 18:13+0300\n"
+"POT-Creation-Date: 2023-01-16 18:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,6 +36,13 @@ msgstr "Метка успешно удалена"
 msgid "Can't remove the label because it's in use"
 msgstr "Невозможно удалить метку, потому что она используется"
 
+#: task_manager/statuses/models.py:6 task_manager/tasks/models.py:10
+#: task_manager/templates/labels/index.html:15
+#: task_manager/templates/statuses/index.html:15
+#: task_manager/templates/tasks/index.html:25
+msgid "Name"
+msgstr "Имя"
+
 #: task_manager/statuses/views.py:13
 msgid "Status successfully created"
 msgstr "Статус успешно создан"
@@ -56,17 +63,21 @@ msgstr "Невозможно удалить статус, потому что о
 msgid "My tasks only"
 msgstr "Только свои задачи"
 
-#: task_manager/tasks/models.py:22 task_manager/templates/tasks/index.html:28
+#: task_manager/tasks/models.py:12
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/models.py:24 task_manager/templates/tasks/index.html:28
 #: task_manager/templates/tasks/show.html:23
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/models.py:25 task_manager/templates/tasks/index.html:26
+#: task_manager/tasks/models.py:27 task_manager/templates/tasks/index.html:26
 #: task_manager/templates/tasks/show.html:27
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/models.py:28 task_manager/templates/index.html:37
+#: task_manager/tasks/models.py:30 task_manager/templates/index.html:37
 #: task_manager/templates/labels/index.html:8
 #: task_manager/templates/tasks/show.html:36
 msgid "Labels"
@@ -156,12 +167,6 @@ msgstr "Вы уверены, что хотите удалить"
 #: task_manager/templates/users/delete.html:12
 msgid "Yes, delete"
 msgstr "Да, удалить"
-
-#: task_manager/templates/labels/index.html:15
-#: task_manager/templates/statuses/index.html:15
-#: task_manager/templates/tasks/index.html:25
-msgid "Name"
-msgstr "Имя"
 
 #: task_manager/templates/labels/index.html:16
 #: task_manager/templates/statuses/index.html:16
