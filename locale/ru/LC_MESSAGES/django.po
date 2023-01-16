@@ -81,7 +81,7 @@ msgstr "Статус"
 #: task_manager/templates/labels/index.html:8
 #: task_manager/templates/tasks/show.html:36
 msgid "Labels"
-msgstr "Метки"
+msgstr "Метка"
 
 #: task_manager/tasks/views.py:11
 msgid "Task successfully created"
