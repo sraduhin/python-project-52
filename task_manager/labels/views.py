@@ -37,7 +37,7 @@ class LabelsUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = SUCCESS_UPDATE_MESSAGE
 
 
-class LabelsDeleteView(LoginRequiredMixin, DeleteView):
+class LabelsDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Label
     success_url = reverse_lazy('labels_index')
     template_name = 'labels/delete.html'
