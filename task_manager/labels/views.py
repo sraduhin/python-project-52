@@ -1,14 +1,14 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from task_manager.labels.forms import LabelForm
-from task_manager.labels.models import Label
 from django.utils.translation import gettext as _
 
-from django.contrib import messages
-from django.shortcuts import redirect
+from task_manager.labels.forms import LabelForm
+from task_manager.labels.models import Label
 
 SUCCESS_CREATE_MESSAGE = _("Label successfully created")
 SUCCESS_UPDATE_MESSAGE = _("Label successfully updated")
