@@ -1,10 +1,24 @@
 # Task manager
+#### Task control applications. Contains User, Label, Status, Task models.
 
-#### See how does it works _ref_ soon [here](https://python-project-52-production-a375.up.railway.app/)
+#### See how does it works [here](https://python-project-52-production-8c1a.up.railway.app/)
 
 #### How to install
 ```python
-soon
+git clone https://github.com/sraduhin/python-project-52.git # clone repo
+
+cd python-project-52 # enter the directory
+
+# create .env file and add variables
+SECRET_KEY={your secret key}
+POST_SERVER_ITEM_ACCESS_TOKEN='project access token from rollbar.com'
+
+# run commands from database.sql
+
+make install # install dependencies
+
+make dev # use local
+make start # or deploy with start command
 ```
 
 ### Hexlet tests and linter status:

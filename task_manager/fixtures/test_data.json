@@ -1,0 +1,10 @@
+{
+    "articles": {
+        "new": {
+            "name": "label new"
+        },
+        "existing": {
+            "name": "label two"
+        }
+    }
+}
