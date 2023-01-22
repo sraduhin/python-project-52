@@ -36,3 +36,6 @@ db.sqlite3
 database.sql
 dump.json
 whole.json
+
+#perspective work
+task_manager/utils.py
