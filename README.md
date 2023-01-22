@@ -22,4 +22,6 @@ make start # or deploy with start command
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/sraduhin/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/sraduhin/python-project-52/actions)
+[![check yourself](https://github.com/sraduhin/python-project-51/actions/workflows/python-package.yml/badge.svg)](https://github.com/sraduhin/python-project-51/actions/workflows/python-package.yml)
 <a href="https://codeclimate.com/github/sraduhin/python-project-52/maintainability"><img src="https://api.codeclimate.com/v1/badges/1d56ca0162eefe000ecd/maintainability" /></a>
+<a href="https://codeclimate.com/github/sraduhin/python-project-52/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1d56ca0162eefe000ecd/test_coverage" /></a>
