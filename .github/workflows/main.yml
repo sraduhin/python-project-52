@@ -11,7 +11,8 @@ on:
 
 jobs:
   build:
-
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
