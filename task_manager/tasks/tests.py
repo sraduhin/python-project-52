@@ -18,7 +18,7 @@ TASK = {
     'status': 1,
     # 'executor': 'executor',
     # 'labels': 'labels',
-    }
+}
 
 TASK_CHANGED = {
     'name': 'changed',
@@ -27,7 +27,7 @@ TASK_CHANGED = {
     'status': 1,
     # 'executor': 'executor',
     # 'labels': 'labels',
-    }
+}
 
 
 class AppTaskTest(TestCase):
@@ -53,7 +53,7 @@ class AppTaskTest(TestCase):
         response = self.auth_user.post(
             reverse(
                 'tasks_update', kwargs={'pk': task.id}
-                ), TASK_CHANGED
+            ), TASK_CHANGED
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('tasks_index'))
