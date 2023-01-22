@@ -13,7 +13,6 @@ cd python-project-52 # enter the directory
 SECRET_KEY={your secret key}
 POST_SERVER_ITEM_ACCESS_TOKEN='project access token from rollbar.com'
 
-# run commands from database.sql
 
 make install # install dependencies
 
