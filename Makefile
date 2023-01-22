@@ -6,6 +6,10 @@ start:
 	python3 manage.py migrate
 	poetry run gunicorn --bind 0.0.0.0:$(PORT) task_manager.wsgi
 
+
+install:
+	poetry install
+
 migrate:
 	poetry run python manage.py makemigrations
 	poetry run python manage.py migrate
