@@ -4,12 +4,12 @@ from django.urls import reverse
 from task_manager.statuses.models import Status
 
 AUTH_USERNAME = {
-        'first_name': 'Имечко',
-        'last_name': 'Фамилия',
-        'username': 'IAmIsAuthorizated',
-        'password1': '123',
-        'password2': '123',
-    }
+    'first_name': 'Имечко',
+    'last_name': 'Фамилия',
+    'username': 'IAmIsAuthorizated',
+    'password1': '123',
+    'password2': '123',
+}
 STATUS = {'name': 'status'}
 STATUS_CHANGED = {'name': 'changed'}
 

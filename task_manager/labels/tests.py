@@ -4,12 +4,12 @@ from django.urls import reverse
 from task_manager.labels.models import Label
 
 AUTH_USERNAME = {
-        'first_name': 'Имечко',
-        'last_name': 'Фамилия',
-        'username': 'IAmIsAuthorizated',
-        'password1': '123',
-        'password2': '123',
-    }
+    'first_name': 'Имечко',
+    'last_name': 'Фамилия',
+    'username': 'IAmIsAuthorizated',
+    'password1': '123',
+    'password2': '123',
+}
 LABEL = {'name': 'label'}
 LABEL_CHANGED = {'name': 'changed'}
 

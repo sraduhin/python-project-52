@@ -3,19 +3,19 @@ from django.test import TestCase, Client
 from django.urls import reverse
 
 AUTH_USERNAME = {
-        'first_name': 'Имечко',
-        'last_name': 'Фамилия',
-        'username': 'IAmIsAuthorizated',
-        'password1': '123',
-        'password2': '123',
-    }
+    'first_name': 'Имечко',
+    'last_name': 'Фамилия',
+    'username': 'IAmIsAuthorizated',
+    'password1': '123',
+    'password2': '123',
+}
 NEW_USER = {
-        'first_name': 'My',
-        'last_name': 'NameIs',
-        'username': 'SlimShady',
-        'password1': 'stan',
-        'password2': 'stan',
-    }
+    'first_name': 'My',
+    'last_name': 'NameIs',
+    'username': 'SlimShady',
+    'password1': 'stan',
+    'password2': 'stan',
+}
 
 
 class AppUserTest(TestCase):
