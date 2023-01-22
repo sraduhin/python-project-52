@@ -36,7 +36,7 @@ class AppStatusTest(TestCase):
         response = self.auth_user.post(
             reverse(
                 'statuses_update', kwargs={'pk': status.id}
-                ), STATUS_CHANGED
+            ), STATUS_CHANGED
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('statuses_index'))
