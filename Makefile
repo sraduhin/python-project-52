@@ -11,7 +11,7 @@ migrate:
 	poetry run python manage.py migrate
 
 lint:
-	poetry run flake8 . --exclude=migrations
+	poetry run flake8 task_manager --exclude=migrations
 
 tests:
 	poetry run python manage.py test

@@ -38,7 +38,8 @@ class AppUserTest(TestCase):
 
         new_user = get_user_model().objects.last()
         self.assertEqual(
-            new_user.__str__(), f"{NEW_USER['first_name']} {NEW_USER['last_name']}"
+            new_user.__str__(),
+            f"{NEW_USER['first_name']} {NEW_USER['last_name']}"
         )
         self.assertEqual(new_user.first_name, NEW_USER['first_name'])
         self.assertEqual(new_user.last_name, NEW_USER['last_name'])
@@ -82,4 +83,6 @@ class AppUserTest(TestCase):
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('users_index'))
-        self.assertFalse(get_user_model().objects.filter(username=AUTH_USERNAME['username']))
+        self.assertFalse(
+            get_user_model().objects.filter(username=AUTH_USERNAME['username'])
+        )
