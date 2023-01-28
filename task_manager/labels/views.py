@@ -42,5 +42,5 @@ class LabelsDeleteView(CustomUnAuthorizedMixin,
     template_name = 'labels/delete.html'
     success_message = SUCCESS_DELETE_MESSAGE
 
-    error_delete_message = ERROR_DELETE_MESSAGE
     fail_url = 'labels_index'
+    error_delete_message = ERROR_DELETE_MESSAGE
