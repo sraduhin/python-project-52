@@ -3,11 +3,11 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
-from task_manager.forms import SignUpForm
-from task_manager.users.utils import CustomPermissionRequiredMixin
-from task_manager.users.utils import CustomUnAuthorizedMixin
-from task_manager.users.utils import PrettyBusinessUserMixin
 from django.utils.translation import gettext as _
+from task_manager.forms import SignUpForm
+from task_manager.mixins import CustomPermissionRequiredMixin
+from task_manager.mixins import CustomUnAuthorizedMixin
+from task_manager.mixins import PrettyBusinessUserMixin
 
 SUCCESS_REGISTRATION_MESSAGE = _("Successfull sign up")
 SUCCESS_UPDATE_MESSAGE = _("User successfully updated")

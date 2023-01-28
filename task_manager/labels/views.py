@@ -4,8 +4,8 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from task_manager.labels.forms import LabelForm
 from task_manager.labels.models import Label
-from task_manager.users.utils import (CustomUnAuthorizedMixin,
-                                      PrettyBusinessObjectMixin)
+from task_manager.mixins import (CustomUnAuthorizedMixin,
+                                 PrettyBusinessObjectMixin)
 
 SUCCESS_CREATE_MESSAGE = _("Label successfully created")
 SUCCESS_UPDATE_MESSAGE = _("Label successfully updated")

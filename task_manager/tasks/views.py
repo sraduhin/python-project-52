@@ -1,16 +1,18 @@
-from task_manager.users.utils import CustomUnAuthorizedMixin
+from django_filters.views import FilterView
 from django.views.generic.detail import DetailView
-from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.utils.translation import gettext as _
+from task_manager.mixins import (CustomUnAuthorizedMixin,
+                                 PrettyBusinessTaskMixin)
+from task_manager.tasks.filters import TaskFilter
 from task_manager.tasks.forms import TaskForm
 from task_manager.tasks.models import Task
-from task_manager.tasks.filters import TaskFilter
-from django_filters.views import FilterView
-from django.utils.translation import gettext as _
 
 SUCCESS_CREATE_MESSAGE = _("Task successfully created")
 SUCCESS_UPDATE_MESSAGE = _("Task successfully updated")
 SUCCESS_DELETE_MESSAGE = _("Task successfully deleted")
+ERROR_DELETE_MESSAGE = _("A task can only be deleted by its author")
 
 
 class TasksListView(CustomUnAuthorizedMixin, FilterView):
@@ -44,8 +46,13 @@ class TasksUpdateView(CustomUnAuthorizedMixin, UpdateView):
     success_message = SUCCESS_UPDATE_MESSAGE
 
 
-class TasksDeleteView(CustomUnAuthorizedMixin, DeleteView):
+class TasksDeleteView(CustomUnAuthorizedMixin,
+                      PrettyBusinessTaskMixin,
+                      DeleteView):
     model = Task
     success_url = reverse_lazy('tasks_index')
     template_name = 'tasks/delete.html'
     success_message = SUCCESS_DELETE_MESSAGE
+
+    fail_url = 'tasks_index'
+    error_delete_message = ERROR_DELETE_MESSAGE

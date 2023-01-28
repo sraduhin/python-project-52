@@ -46,7 +46,22 @@ class PrettyBusinessObjectMixin(LoginRequiredMixin):
     fail_url = ''
 
     def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated and self.get_object().task_set.first():  # noqa E501
+        obj = self.get_object()
+        if request.user.is_authenticated and obj.task_set.first():
+            messages.error(
+                request, self.error_delete_message
+            )
+            return redirect(reverse_lazy(self.fail_url))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class PrettyBusinessTaskMixin(LoginRequiredMixin):
+    error_delete_message = ''
+    fail_url = ''
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if request.user.is_authenticated and request.user.id != obj.owner.id:
             messages.error(
                 request, self.error_delete_message
             )

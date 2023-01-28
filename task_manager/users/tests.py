@@ -15,7 +15,7 @@ class AppUserTest(TestCase):
         self.auth_user = Client()
         self.auth_user.force_login(self.user)
 
-    def test_SignUp(self):
+    def test_sign_up(self):
         NEW_USER = get_test_data('users', 'new')
 
         response = self.guest.get(reverse('users_create'))
@@ -38,7 +38,7 @@ class AppUserTest(TestCase):
         response = self.client.get(reverse('users_index'))
         self.assertContains(response, new_user.username)
 
-    def test_UpdateUser(self):
+    def test_update_user(self):
         CHANGES = get_test_data('users', 'changed')
 
         user = get_user_model().objects.first()
@@ -60,7 +60,7 @@ class AppUserTest(TestCase):
         user.refresh_from_db()
         self.assertEqual(user.last_name, CHANGES['last_name'])
 
-    def test_DeleteUser(self):
+    def test_delete_user(self):
         user = get_user_model().objects.first()
         response = self.guest.get(
             reverse('users_delete', kwargs={'pk': user.id})

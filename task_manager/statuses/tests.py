@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
 from django.urls import reverse
+from django.http import Http404
 from task_manager.statuses.models import Status
 from task_manager.utils import get_test_data
 
@@ -24,7 +25,7 @@ class AppStatusTest(TestCase):
         self.auth_user = Client()
         self.auth_user.force_login(self.user)
 
-    def test_CreateStatus(self):
+    def test_create_status(self):
         NEW_STATUS = get_test_data('statuses', 'new')
         EXISTS_STATUS = get_test_data('statuses', 'exists')
 
@@ -39,7 +40,7 @@ class AppStatusTest(TestCase):
         response = self.auth_user.get(reverse('statuses_index'))
         self.assertContains(response, NEW_STATUS['name'])
 
-    def test_UpdateStatus(self):
+    def test_update_status(self):
         CHANGES = get_test_data('labels', 'changed')
 
         status = Status.objects.last()
@@ -52,11 +53,11 @@ class AppStatusTest(TestCase):
         response = self.auth_user.get(reverse('statuses_index'))
         self.assertContains(response, CHANGES['name'])
 
-    def test_DeleteStatus(self):
+    def test_delete_status(self):
         response = self.auth_user.post(
             reverse('statuses_delete', kwargs={'pk': 999})  # non-existent
         )
-        self.assertEqual(response.status_code, 404)
+        self.assertRaises(Http404)
 
         status = Status.objects.last()
         response = self.auth_user.post(

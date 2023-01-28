@@ -28,8 +28,6 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-ENVIRON = os.getenv('ENVIRON')
-# DEBUG = True if ENVIRON == 'develop' else False
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 
@@ -139,7 +137,6 @@ LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'), )
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type

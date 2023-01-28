@@ -14,7 +14,7 @@ class AppTaskTest(TestCase):
         self.auth_user = Client()
         self.auth_user.force_login(self.user)
 
-    def test_CreateTask(self):
+    def test_create_task(self):
         TASK = get_test_data('tasks', 'new')
 
         response = self.auth_user.post(reverse('tasks_create'), TASK)
@@ -23,7 +23,7 @@ class AppTaskTest(TestCase):
         response = self.auth_user.get(reverse('tasks_index'))
         self.assertContains(response, TASK['name'])
 
-    def test_UpdateTask(self):
+    def test_update_task(self):
         CHANGES = get_test_data('tasks', 'changed')
 
         task = Task.objects.last()
@@ -36,11 +36,17 @@ class AppTaskTest(TestCase):
         response = self.auth_user.get(reverse('tasks_index'))
         self.assertContains(response, CHANGES['name'])
 
-    def test_DeleteTask(self):
+    def test_delete_task(self):
         response = self.auth_user.post(
             reverse('tasks_delete', kwargs={'pk': 999})  # non-existent
         )
         self.assertEqual(response.status_code, 404)
+
+        response = self.auth_user.post(
+            reverse('tasks_delete', kwargs={'pk': 2})  # not yours
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Task.objects.get(id=2))
 
         task = Task.objects.last()
         response = self.auth_user.post(

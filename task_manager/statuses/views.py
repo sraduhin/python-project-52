@@ -2,10 +2,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
+from task_manager.mixins import (CustomUnAuthorizedMixin,
+                                 PrettyBusinessObjectMixin)
 from task_manager.statuses.forms import StatusForm
 from task_manager.statuses.models import Status
-from task_manager.users.utils import (CustomUnAuthorizedMixin,
-                                      PrettyBusinessObjectMixin)
 
 SUCCESS_CREATE_MESSAGE = _("Status successfully created")
 SUCCESS_UPDATE_MESSAGE = _("Status successfully updated")

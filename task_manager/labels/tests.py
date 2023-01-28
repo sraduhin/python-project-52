@@ -14,7 +14,7 @@ class AppLabelTest(TestCase):
         self.auth_user = Client()
         self.auth_user.force_login(self.user)
 
-    def test_CreateLabel(self):
+    def test_create_label(self):
         NEW_LABEL = get_test_data('labels', 'new')
         EXISTS_LABEL = get_test_data('labels', 'exists')
 
@@ -27,7 +27,7 @@ class AppLabelTest(TestCase):
         response = self.auth_user.get(reverse('labels_index'))
         self.assertContains(response, NEW_LABEL['name'])
 
-    def test_UpdateLabel(self):
+    def test_update_label(self):
         GHANGES = get_test_data('labels', 'changed')
 
         label = Label.objects.last()
@@ -40,12 +40,12 @@ class AppLabelTest(TestCase):
         response = self.auth_user.get(reverse('labels_index'))
         self.assertContains(response, GHANGES['name'])
 
-    def test_DeleteLabel(self):
+    def test_delete_label(self):
         response = self.auth_user.post(
             reverse('labels_delete', kwargs={'pk': 999})  # non-existent
         )
-
         self.assertEqual(response.status_code, 404)
+
         label = Label.objects.last()
         response = self.auth_user.post(
             reverse('labels_delete', kwargs={'pk': label.id})
