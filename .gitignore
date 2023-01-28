@@ -32,10 +32,8 @@ nosetests.xml
 notes.py
 
 #develop db
-db.sqlite3
+*.sqlite3
 database.sql
 dump.json
 whole.json
 
-#perspective work
-task_manager/utils.py

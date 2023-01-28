@@ -1,0 +1,54 @@
+{
+  "users": {
+    "new": {
+      "first_name": "Gandalf",
+      "last_name": "White",
+      "username": "SecretsKeeper",
+      "password1": "YouCannotPass",
+      "password2": "YouCannotPass"
+    },
+    "changed": {
+      "first_name": "Gandalf",
+      "username": "SecretsKeeper",
+      "last_name": "Grey",
+      "password1": "YouCannotPass",
+      "password2": "YouCannotPass"
+    }
+  },
+  "labels": {
+    "new": {
+      "name": "label"
+    },
+    "changed": {
+      "name": "changed"
+    },
+    "exists": {
+      "name": "label Exists"
+    }
+  },
+  "statuses": {
+    "new": {
+      "name": "new status"
+    },
+    "changed": {
+      "name": "changed"
+    },
+    "exists": {
+      "name": "status Exists"
+    }
+  },
+  "tasks": {
+    "new": {
+      "name": "task",
+      "description": "description",
+      "owner": 1,
+      "status": 1
+    },
+    "changed": {
+      "name": "changed",
+      "description": "changed",
+      "owner": 1,
+      "status": 2
+    }
+  }
+}

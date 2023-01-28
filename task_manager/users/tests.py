@@ -1,33 +1,23 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
 from django.urls import reverse
-
-AUTH_USERNAME = {
-    'first_name': 'Имечко',
-    'last_name': 'Фамилия',
-    'username': 'IAmIsAuthorizated',
-    'password1': '123',
-    'password2': '123',
-}
-NEW_USER = {
-    'first_name': 'My',
-    'last_name': 'NameIs',
-    'username': 'SlimShady',
-    'password1': 'stan',
-    'password2': 'stan',
-}
+from task_manager.utils import get_test_data
 
 
 class AppUserTest(TestCase):
+
+    fixtures = ['users.json']
+
     def setUp(self):
         self.guest = Client()
-        self.user = get_user_model().objects.create(
-            username=AUTH_USERNAME['username']
-        )
+
+        self.user = get_user_model().objects.get(pk=1)
         self.auth_user = Client()
         self.auth_user.force_login(self.user)
 
     def test_SignUp(self):
+        NEW_USER = get_test_data('users', 'new')
+
         response = self.guest.get(reverse('users_create'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, template_name='users/create.html')
@@ -49,6 +39,8 @@ class AppUserTest(TestCase):
         self.assertContains(response, new_user.username)
 
     def test_UpdateUser(self):
+        CHANGES = get_test_data('users', 'changed')
+
         user = get_user_model().objects.first()
         response = self.guest.get(
             reverse('users_update', kwargs={'pk': user.id})
@@ -56,17 +48,17 @@ class AppUserTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('login'))
 
-        user = get_user_model().objects.get(username=AUTH_USERNAME['username'])
+        user = get_user_model().objects.get(pk=1)
         response = self.auth_user.get(
             reverse('users_update', kwargs={'pk': user.id})
         )
         self.assertEqual(response.status_code, 200)
         response = self.auth_user.post(
-            reverse('users_update', kwargs={'pk': user.id}), AUTH_USERNAME
+            reverse('users_update', kwargs={'pk': user.id}), CHANGES
         )
         self.assertEqual(response.status_code, 302)
         user.refresh_from_db()
-        self.assertEqual(user.first_name, AUTH_USERNAME['first_name'])
+        self.assertEqual(user.last_name, CHANGES['last_name'])
 
     def test_DeleteUser(self):
         user = get_user_model().objects.first()
@@ -76,13 +68,12 @@ class AppUserTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('login'))
 
-        self.assertEqual(user.username, AUTH_USERNAME['username'])
-        user = get_user_model().objects.get(username=AUTH_USERNAME['username'])
+        user = get_user_model().objects.get(pk=1)
         response = self.auth_user.post(
             reverse('users_delete', kwargs={'pk': user.id})
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('users_index'))
         self.assertFalse(
-            get_user_model().objects.filter(username=AUTH_USERNAME['username'])
+            get_user_model().objects.filter(pk=1)
         )

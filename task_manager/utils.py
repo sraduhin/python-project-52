@@ -18,5 +18,5 @@ def get_fixture_data(file_name):
     return json.loads(content)
 
 
-def get_test_data(file_path):
-    return get_fixture_data(file_path)
+def get_test_data(model, category):
+    return get_fixture_data('test_data.json')[model][category]
